@@ -3247,6 +3247,28 @@ rf:	.int DOTOK
 
 	
 @ ** since ACCEPT never returns zero this line is not needed !!!
+
+/*
+	: INTERPRET ( -- )
+	  #TIB @ 0= ( f )
+	  IF
+	    EXIT
+	  THEN
+	  TIB              ( addr )
+	  BEGIN
+	    WORD DUP         ( addr n n )
+	  WHILE
+	      2DUP N ! X !   ( addr n ) save addr and n in scratch variable
+	      FIND DUP       ( lfa lfa )
+	      IF
+	        >CFA EXECUTE ( )
+	        X @ N @ +    ( addr+n )
+	      ELSE
+	        WHAT DROP EXIT
+	      THEN
+	  AGAIN
+	;
+*/       
 	
 	defword "INTERPRET",9,,INTERPRET @ ( -- )
 	.int NTIB,FETCH,ZEQU             @ if there is nothing in the TIB exit !!!

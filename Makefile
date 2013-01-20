@@ -5,7 +5,8 @@ TARGET = df
 #
 # +) CPATH
 #
-CPATH=/home/neon/etc/Sourcery-G++/2010q1-188/bin
+#CPATH=/home/neon/etc/Sourcery-G++/2010q1-188/bin
+CPATH=/home/neon/etc/CodeSourcery/2010q1-188/bin
 AS=$(CPATH)/arm-none-eabi-as
 AR=$(CPATH)/arm-none-eabi-ar
 CC=$(CPATH)/arm-none-eabi-gcc
